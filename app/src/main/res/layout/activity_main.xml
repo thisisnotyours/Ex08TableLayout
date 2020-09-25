@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!-- 테이블 레이아웃 안에서는 width, height 지정이 없으면 자동 wrap_content 임-->
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <!-- 첫번째 줄(Row) -->
+        <!-- TableRow 의 width 는 기본 match/-parent -->
+        <TableRow>
+            <Button android:text="1"/>
+            <Button android:text="2"/>
+            <Button android:text="3"/>
+        </TableRow>
+
+
+        <TableRow>
+            <Button android:text="4"/>
+            <Button android:text="5"/>
+        </TableRow>
+
+
+    </TableLayout>
+<!-- 기본 뷰들의 사이즈가 wrap 임.. 근데 균등사이즈 배치를 하고싶다면 -->
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:stretchColumns="*">      <!-- * 은 모든 칸들을 균등한 크기로 만들어줌 -->
+
+        <TableRow>
+            <Button/>
+            <Button/>
+            <Button/>
+        </TableRow>
+
+        <TableRow>
+            <Button/>
+            <Button android:layout_column="2"/>   <!-- 칸이 2번으로 옮겨감 -->
+            <!-- layout column 은 순서변경은 안됨 -->
+            <!--Button android:layout_column="1"/-->
+        </TableRow>
+
+        <TableRow>
+            <Button/>
+            <Button android:layout_span="2"/>      <!-- 셀 병합하기 -->
+        </TableRow>
+
+    </TableLayout>
+
+
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:shrinkColumns="*">             <!-- 컬롬이 작을때는 strech 길때는 shrink -->
+        <TableRow>
+            <Button/>
+            <Button/>
+            <Button/>
+            <Button/>
+            <Button/>
+        </TableRow>
+    </TableLayout>
+
+
+
+</LinearLayout>
